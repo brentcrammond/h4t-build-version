@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>maven-plugin</packaging>
 
-    <name>h4t-build-version</name>
+    <name>${project.groupId}:${project.artifactId}</name>
     <description>
         This maven plugin will update the application.properties file,
         in the src/main/resources/application.properties.
