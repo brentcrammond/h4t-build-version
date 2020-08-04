@@ -10,7 +10,19 @@
     <packaging>maven-plugin</packaging>
 
     <name>h4t-build-version</name>
+    <description>
+        This maven plugin will update the application.properties file,
+        in the src/main/resources/application.properties.
+    </description>
     <url>http://maven.apache.org</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://raw.githubusercontent.com/brentcrammond/h4t-build-version/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -15,6 +15,11 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * This MOJO will update the build version and timestamp, in the specified application.properties file.
+ * <p>
+ * The build.version will bump the patch and build number (semver based) and wil update the build.timestamp.
+ */
 @Mojo(name = "BumpBuildVersion", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class BumpBuildVersion extends AbstractMojo {
     @Parameter(required = true)
