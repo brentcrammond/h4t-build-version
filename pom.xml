@@ -16,6 +16,12 @@
     </description>
     <url>https://github.com/brentcrammond/h4t-build-version</url>
 
+    <scm>
+      <connection>scm:git:git@github.com:brentcrammond/h4t-build-version.git</connection>
+      <developerConnection>scm:git:git@github.com:brentcrammond/h4t-build-version.git</developerConnection>
+      <url>https://github.com/brentcrammond/h4t-build-version</url>
+    </scm>
+
     <licenses>
         <license>
             <name>MIT License</name>
