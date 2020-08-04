@@ -14,7 +14,7 @@
         This maven plugin will update the application.properties file,
         in the src/main/resources/application.properties.
     </description>
-    <url>http://maven.apache.org</url>
+    <url>https://github.com/brentcrammond/h4t-build-version</url>
 
     <licenses>
         <license>
