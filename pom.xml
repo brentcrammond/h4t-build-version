@@ -4,10 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>nz.h4t</groupId>
+    <groupId>com.github.brentcrammond</groupId>
     <artifactId>h4t-build-version</artifactId>
-    <version>1.0.1</version>
-    <packaging>maven-plugin</packaging>
+    <version>1.0.2</version>
+  <!--<groupId>nz.h4t</groupId>-->
+  <!--<artifactId>h4t-build-version</artifactId>-->
+  <!--<version>1.0.1</version>-->
+  <packaging>maven-plugin</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>
