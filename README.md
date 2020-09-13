@@ -11,9 +11,9 @@ build.timestamp = Sun 26-Jul-2020 23:59
 Maven Plugin:
 ```
 <plugin>
-  <groupId>nz.h4t</groupId>
+  <groupId>com.github.brentcrammond</groupId>
   <artifactId>h4t-build-version</artifactId>
-  <version>1.0</version>
+  <version>1.0.2</version>
   <executions>
     <execution>
       <configuration>
@@ -26,3 +26,11 @@ Maven Plugin:
   </executions>
 </plugin>
 ```      
+```
+  <pluginRepositories>
+    <pluginRepository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+    </pluginRepository>
+  </pluginRepositories>
+```
