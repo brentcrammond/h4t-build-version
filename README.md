@@ -27,10 +27,10 @@ Maven Plugin:
 </plugin>
 ```      
 ```
-  <pluginRepositories>
-    <pluginRepository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-    </pluginRepository>
-  </pluginRepositories>
+<pluginRepositories>
+  <pluginRepository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </pluginRepository>
+</pluginRepositories>
 ```
