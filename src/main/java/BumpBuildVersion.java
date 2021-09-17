@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,9 @@ public class BumpBuildVersion extends AbstractMojo {
     @Parameter(defaultValue = "build.version")
     private String buildVersionProperty;
 
+    @Parameter(defaultValue = "build.short.version")
+    private String buildShortVersionProperty;
+
     @Parameter(defaultValue = "build.timestamp")
     private String buildTimestampProperty;
 
@@ -37,8 +41,15 @@ public class BumpBuildVersion extends AbstractMojo {
             var file = new File(propertyFilePath);
             List<String> lns = FileUtils.readLines(file, "UTF-8");
 
+            var ver = lns.stream()
+                    .map(this::findVersion)
+                    .filter(Objects::nonNull)
+                    .findFirst()
+                    .orElse(Version.valueOf("1.0.0+build.1000"));
+
             lns = lns.stream()
-                    .map(this::bumpVersion)
+                    .map(ln -> updateVersion(ver, ln))
+                    .map(ln -> updateShortVersion(ver, ln))
                     .map(this::updateTimestamp)
                     .collect(Collectors.toList());
 
@@ -48,7 +59,11 @@ public class BumpBuildVersion extends AbstractMojo {
         }
     }
 
-    private String bumpVersion(String ln) {
+    //
+    // Internal Methods...
+    //
+
+    private Version findVersion(String ln) {
         Pattern pat = Pattern.compile("^(" + buildVersionProperty + "[ ]*=[ ]*)(.*)$");
         var m = pat.matcher(ln);
         if (m.matches()) {
@@ -66,11 +81,27 @@ public class BumpBuildVersion extends AbstractMojo {
                     v = v.setBuildMetadata(buildNo);
                     v = v.incrementBuildMetadata();
                 }
-                ln = lead + v.toString();
-                getLog().info("Build Version  : " + v.toString());
+                getLog().info("New Build Version  : " + v.toString());
+                return v;
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+        }
+        return null;
+    }
+
+    private String updateVersion(Version v, String ln) {
+        Pattern pat = Pattern.compile("^(" + buildVersionProperty + "[ ]*=[ ]*)(.*)$");
+        if (pat.matcher(ln).matches()) {
+            ln = buildVersionProperty + "=" + v.toString();
+        }
+        return ln;
+    }
+
+    private String updateShortVersion(Version v, String ln) {
+        Pattern pat = Pattern.compile("^(" + buildShortVersionProperty + "[ ]*=[ ]*)(.*)$");
+        if (pat.matcher(ln).matches()) {
+            ln = buildShortVersionProperty + "=" + v.toString();
         }
         return ln;
     }

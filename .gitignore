@@ -1,3 +1,4 @@
 /.idea/
 /h4t-build-version.iml
 /target/
+.DS_Store
