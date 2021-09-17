@@ -101,7 +101,7 @@ public class BumpBuildVersion extends AbstractMojo {
     private String updateShortVersion(Version v, String ln) {
         Pattern pat = Pattern.compile("^(" + buildShortVersionProperty + "[ ]*=[ ]*)(.*)$");
         if (pat.matcher(ln).matches()) {
-            ln = buildShortVersionProperty + "=" + v.toString();
+            ln = buildShortVersionProperty + "=" + v.getNormalVersion();
         }
         return ln;
     }
