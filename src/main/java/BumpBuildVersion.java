@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * <p>
  * The build.version will bump the patch and build number (semver based) and wil update the build.timestamp.
  */
-@Mojo(name = "BumpBuildVersion", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
+@Mojo(name = "BumpBuildVersion", defaultPhase = LifecyclePhase.GENERATE_RESOURCES)
 public class BumpBuildVersion extends AbstractMojo {
     @Parameter(required = true)
     private String propertyFilePath;
